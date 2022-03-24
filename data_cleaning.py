@@ -76,7 +76,8 @@ def CleanAndMerge(_revenue, _listings):
                             'Sofa Cama Solteiro': 'float64',
                             'Travesseiros': 'float64',
                             'Banheiros': 'float64',
-                            'Taxa de Limpeza': 'float64'
+                            'Taxa de Limpeza': 'float64',
+                            'Capacidade': 'float64'
                             },
                             errors='raise')
 
