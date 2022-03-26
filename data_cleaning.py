@@ -21,7 +21,7 @@ def CleanAndMerge(_revenue, _listings):
 
     #Filter out rows where creation date is after date or creation date is null
     revenue = _revenue.query('date>=creation_date | creation_date != creation_date')
-
+    revenue_final = revenue.drop_duplicates()
     # Listings
     listings = _listings
 
@@ -81,6 +81,8 @@ def CleanAndMerge(_revenue, _listings):
                             },
                             errors='raise')
 
+    listings_final = listings.drop_duplicates()
+
     #Merge listings and revenue for integrated analysis
-    df = pd.merge(revenue, listings, how='left', on= 'listing')
+    df = pd.merge(revenue_final, listings_final, how='left', on= 'listing')
     return df
